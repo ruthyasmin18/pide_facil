@@ -1,0 +1,166 @@
+/* src/components/Navbar/Navbar.css */
+
+.nav1 {
+  background-color: #ff3131; /* Rojo principal */
+  height: 80px;
+  display: flex;
+  justify-content: space-between; /* Esto ahora distribuye el logo y el nav-menu-wrapper */
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+}
+
+/* Nuevo estilo para el contenedor que agrupa el menú */
+.nav-menu-wrapper {
+    display: flex; /* Permite que el hamburguesa y los nav-items estén en la misma fila */
+    align-items: center;
+    /* justify-content: flex-end; /* Opcional: si quieres que se peguen a la derecha dentro de su contenedor */
+}
+
+
+.containerLogo {
+    display: flex; /* ESENCIAL: para que el logo y el texto estén en fila */
+    align-items: center; /* ESENCIAL: para centrar verticalmente el logo y el texto entre sí */
+    gap: 3px; /* Espacio entre el logo y el texto */
+    text-decoration: none; /* Quita el subrayado del Link si lo tiene por defecto */
+    color: inherit; /* Hereda el color del texto para el Link si no se define en span2 */
+}
+
+
+.span2 {
+    font-size: 1.8rem; /* Aumenta el tamaño para que sea más legible si lo deseas */
+    font-weight: bold; /* Para que el nombre resalte más */
+    color: #fff; /* Blanco para el texto del nombre en la barra roja */
+    /* margin-top: 5px; */ /* Ajuste fino si el logo y el texto no se alinean perfectamente por sus tamaños de línea base */
+}
+
+.nav-items {
+    display: flex; /* Para que los ítems estén en una fila */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.logoPideFacil{
+    top:70%;
+    height: 80px;
+}
+.nav-item {
+  margin-left: 30px;
+  position: relative;
+}
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; /* Ajusta el ancho según sea necesario */
+}
+.nav-item a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 10px 18px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  display: block;
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+  background-color: #3232c2;
+  color: #ffde59;
+}
+
+.cart-icon-container {
+  margin-left: 40px;
+}
+
+.cart-icon {
+  font-size: 2rem;
+  color: #ffde59;
+  transition: transform 0.2s ease-in-out;
+}
+
+.cart-icon:hover {
+  transform: scale(1.15);
+  color: #fff;
+}
+
+/* Estilos para el contenido principal para que no se pegue al navbar */
+.content {
+    padding-top: 20px;
+    text-align: center;
+}
+
+/* ------------- Menú Hamburguesa para Móviles ------------- */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-menu-wrapper { /* En móviles, el wrapper se comporta igual que nav-items para el menú desplegable */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    background-color: #ff3131;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-menu-wrapper.active { /* Asegúrate de que esta clase se aplique al wrapper en móvil */
+    left: 0;
+    opacity: 1;
+  }
+
+  /* Aquí los nav-items y el cart-icon-container se ajustarán al nuevo wrapper */
+  .nav-items, .cart-icon-container {
+    width: 100%; /* Ocupan todo el ancho del wrapper */
+    margin: 0; /* Elimina márgenes laterales */
+  }
+
+  .nav-item {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .nav-item a {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  .nav-item a:hover {
+    background-color: #3232c2;
+    border-radius: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .span2 {
+    font-size: 1.6rem;
+  }
+
+  .logoPideFacil {
+    height: 45px;
+  }
+}
