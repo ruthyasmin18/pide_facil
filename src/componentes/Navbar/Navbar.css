@@ -1,166 +1,345 @@
 /* src/components/Navbar/Navbar.css */
 
+/* BASE STYLES FOR DESKTOP */
 .nav1 {
-  background-color: #ff3131; /* Rojo principal */
-  height: 80px;
-  display: flex;
-  justify-content: space-between; /* Esto ahora distribuye el logo y el nav-menu-wrapper */
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
-}
-
-/* Nuevo estilo para el contenedor que agrupa el menú */
-.nav-menu-wrapper {
-    display: flex; /* Permite que el hamburguesa y los nav-items estén en la misma fila */
+    background-color: #ff3131;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    /* justify-content: flex-end; /* Opcional: si quieres que se peguen a la derecha dentro de su contenedor */
+    padding: 0 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
 }
 
-
+/* Contenedor del logo y el texto PideFácil */
 .containerLogo {
-    display: flex; /* ESENCIAL: para que el logo y el texto estén en fila */
-    align-items: center; /* ESENCIAL: para centrar verticalmente el logo y el texto entre sí */
-    gap: 3px; /* Espacio entre el logo y el texto */
-    text-decoration: none; /* Quita el subrayado del Link si lo tiene por defecto */
-    color: inherit; /* Hereda el color del texto para el Link si no se define en span2 */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    z-index: 1002;
 }
 
+/* Contenedor solo del logo */
+.logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
 
+/* Estilos de la imagen del logo */
+.logoPideFacil {
+    height: 65px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Estilos del texto "PideFácil" */
 .span2 {
-    font-size: 1.8rem; /* Aumenta el tamaño para que sea más legible si lo deseas */
-    font-weight: bold; /* Para que el nombre resalte más */
-    color: #fff; /* Blanco para el texto del nombre en la barra roja */
-    /* margin-top: 5px; */ /* Ajuste fino si el logo y el texto no se alinean perfectamente por sus tamaños de línea base */
+    font-size: 2.0rem;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+    line-height: 1;
 }
 
+/* Botón hamburguesa - OCULTO EN DESKTOP */
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffde59;
+}
+
+/* Contenedor del menú de navegación */
+.nav-menu-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos de los elementos de navegación en desktop */
 .nav-items {
-    display: flex; /* Para que los ítems estén en una fila */
+    display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
     align-items: center;
 }
 
-.logoPideFacil{
-    top:70%;
-    height: 80px;
-}
 .nav-item {
-  margin-left: 30px;
-  position: relative;
+    margin-left: 30px;
+    position: relative;
 }
-.logoContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px; /* Ajusta el ancho según sea necesario */
-}
+
 .nav-item a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.1rem;
-  padding: 10px 18px;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
-  display: block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 10px 18px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    display: block;
 }
 
 .nav-item a:hover,
 .nav-item a.active {
-  background-color: #3232c2;
-  color: #ffde59;
+    background-color: #3232c2;
+    color: #ffde59;
 }
 
 .cart-icon-container {
-  margin-left: 40px;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .cart-icon {
-  font-size: 2rem;
-  color: #ffde59;
-  transition: transform 0.2s ease-in-out;
+    font-size: 2rem;
+    color: #ffde59;
+    transition: transform 0.2s ease-in-out;
 }
 
 .cart-icon:hover {
-  transform: scale(1.15);
-  color: #fff;
+    transform: scale(1.15);
+    color: #fff;
 }
 
-/* Estilos para el contenido principal para que no se pegue al navbar */
+/* Overlay del menú móvil - OCULTO EN DESKTOP */
+.mobile-menu-overlay {
+    display: none;
+}
+
+/* Estilos para el contenido principal */
 .content {
-    padding-top: 20px;
+    padding-top: 80px;
     text-align: center;
+    min-height: calc(100vh - 80px);
 }
 
-/* ------------- Menú Hamburguesa para Móviles ------------- */
-.hamburger {
-  display: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
+/* ------------- MEDIA QUERIES PARA DIFERENTES TAMAÑOS ------------- */
+
+/* Tablets pequeñas y móviles grandes */
+@media screen and (max-width: 1024px) {
+    .nav1 {
+        padding: 0 30px;
+    }
+    
+    .nav-item {
+        margin-left: 20px;
+    }
+    
+    .cart-icon-container {
+        margin-left: 20px;
+    }
 }
 
+/* MÓVILES (max-width: 768px) */
 @media screen and (max-width: 768px) {
-  .nav-menu-wrapper { /* En móviles, el wrapper se comporta igual que nav-items para el menú desplegable */
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 70px;
-    left: -100%;
-    opacity: 1;
-    transition: all 0.5s ease;
-    background-color: #ff3131;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+    .nav1 {
+        padding: 0 20px;
+        height: 70px;
+    }
 
-  .nav-menu-wrapper.active { /* Asegúrate de que esta clase se aplique al wrapper en móvil */
-    left: 0;
-    opacity: 1;
-  }
+    .containerLogo {
+        height: 100%;
+    }
 
-  /* Aquí los nav-items y el cart-icon-container se ajustarán al nuevo wrapper */
-  .nav-items, .cart-icon-container {
-    width: 100%; /* Ocupan todo el ancho del wrapper */
-    margin: 0; /* Elimina márgenes laterales */
-  }
+    .logoPideFacil {
+        height: 50px;
+    }
 
-  .nav-item {
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
+    .span2 {
+        font-size: 1.6rem;
+    }
 
-  .nav-item:last-child {
-    border-bottom: none;
-  }
+    /* MOSTRAR el botón hamburguesa en móvil */
+    .hamburger {
+        display: block;
+        position: relative;
+    }
 
-  .nav-item a {
-    display: block;
-    width: 100%;
-    padding: 15px 0;
-  }
+    /* Contenedor del menú móvil */
+    .nav-menu-wrapper {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: #ff3131;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        transition: left 0.4s ease-in-out;
+        overflow-y: auto;
+        z-index: 1001;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-  .nav-item a:hover {
-    background-color: #3232c2;
-    border-radius: 0;
-  }
+    /* Estado ACTIVO para el menú móvil */
+    .nav-menu-wrapper.active {
+        left: 0;
+    }
 
-  .hamburger {
-    display: block;
-  }
+    /* Lista de navegación en móvil */
+    .nav-items {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+    }
 
-  .span2 {
-    font-size: 1.6rem;
-  }
+    .nav-item {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
 
-  .logoPideFacil {
-    height: 45px;
-  }
+    .nav-item a {
+        display: block;
+        width: 100%;
+        padding: 20px;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-item a:hover {
+        background-color: #3232c2;
+        transform: translateX(10px);
+    }
+
+    .cart-icon-container {
+        width: 100%;
+        margin: 20px 0;
+        margin-left: 0;
+        padding: 20px;
+        border-top: 2px solid rgba(255, 255, 255, 0.2);
+        justify-content: center;
+    }
+
+    .cart-icon {
+        font-size: 2.5rem;
+    }
+
+    /* Overlay para cerrar el menú */
+    .mobile-menu-overlay {
+        display: block;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    /* Ajustar el contenido principal */
+    .content {
+        padding-top: 70px;
+        min-height: calc(100vh - 70px);
+    }
+}
+
+/* MÓVILES PEQUEÑOS (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .nav1 {
+        padding: 0 15px;
+        height: 65px;
+    }
+
+    .logoPideFacil {
+        height: 45px;
+    }
+
+    .span2 {
+        font-size: 1.4rem;
+    }
+
+    .hamburger {
+        font-size: 1.6rem;
+        padding: 8px;
+    }
+
+    .nav-menu-wrapper {
+        top: 65px;
+        height: calc(100vh - 65px);
+    }
+
+    .nav-items {
+        margin-top: 30px;
+        padding: 0 15px;
+    }
+
+    .nav-item a {
+        padding: 18px;
+        font-size: 1.1rem;
+    }
+
+    .mobile-menu-overlay {
+        top: 65px;
+        height: calc(100vh - 65px);
+    }
+
+    .content {
+        padding-top: 65px;
+        min-height: calc(100vh - 65px);
+    }
+}
+
+/* ANIMACIONES ADICIONALES */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        transition: transform 0.3s ease;
+    }
+    
+    .hamburger:active {
+        transform: scale(0.95);
+    }
+    
+    .nav-item {
+        opacity: 0;
+        animation: fadeInUp 0.5s ease forwards;
+    }
+    
+    .nav-item:nth-child(1) { animation-delay: 0.1s; }
+    .nav-item:nth-child(2) { animation-delay: 0.2s; }
+    .nav-item:nth-child(3) { animation-delay: 0.3s; }
+    .nav-item:nth-child(4) { animation-delay: 0.4s; }
+    .nav-item:nth-child(5) { animation-delay: 0.5s; }
+    
+    .cart-icon-container {
+        opacity: 0;
+        animation: fadeInUp 0.5s ease forwards;
+        animation-delay: 0.6s;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

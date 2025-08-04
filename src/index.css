@@ -12,6 +12,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* Asegúrate de NO tener 'overflow: hidden;' aquí a menos que sea muy intencional y sepas por qué */
+    /* overflow-x: hidden; puede ser útil para evitar scroll horizontal, pero 'overflow: hidden;' a secas es peligroso */
+}
 
 a {
   font-weight: 500;

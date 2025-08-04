@@ -1,4 +1,3 @@
-// src/components/Navbar/Navbar.jsx
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
@@ -14,6 +13,12 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Cerrar menú al hacer clic en un enlace
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  // Cerrar menú al hacer clic fuera de él
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -30,49 +35,55 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
+  // Prevenir scroll del body cuando el menú móvil está abierto
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup al desmontar el componente
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <nav className='nav1' ref={navbarRef}>
-      {/* Sección del Logo y Nombre */}
-      <Link to="/" className='containerLogo'> {/* containerLogo ya tiene display: flex y gap */}
-        <div className='logoContainer'> {/* Contenedor del icono del carrito */}
-          <img src={logoPideFacil} alt="Logo PideFácil" className='logoPideFacil' />
-        </div>
-        <span className='span2'>PideFácil</span> {/* El texto del nombre */}
-      </Link>
-
-      {/* Nuevo contenedor para agrupar el menú y el botón de hamburguesa */}
-      <div className="nav-menu-wrapper"> {/* Añade esta envoltura */}
-        {/* Botón de Hamburguesa para Móviles */}
-        <div className='hamburger' onClick={toggleMobileMenu}>
-          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+      {/* Logo y texto */}
+      <Link to="/" className='containerLogo' onClick={closeMobileMenu}>
+        <div className='logoContainer'>
+          <img src={logoPideFacil} alt="Logo PideFácil" className='logoPideFacil' />
         </div>
+        <span className='span2'>PideFácil</span>
+      </Link>
 
-        {/* Lista de Navegación */}
-        <ul className={`nav-items ${isMobileMenuOpen ? 'active' : ''}`}>
+      {/* Botón hamburguesa - FUERA del wrapper para mejor control */}
+      <div className='hamburger' onClick={toggleMobileMenu}>
+        {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+
+      {/* Menú de navegación */}
+      <div className={`nav-menu-wrapper ${isMobileMenuOpen ? 'active' : ''}`}>
+        <ul className='nav-items'>
           {navItems.map((item) => (
-            <li
-              key={item.id}
-              className={item.cName}
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              <Link to={item.path}>{item.title}</Link>
+            <li key={item.id} className={item.cName}>
+              <Link to={item.path} onClick={closeMobileMenu}>
+                {item.title}
+              </Link>
             </li>
           ))}
-          {/* Carrito de Compras */}
-          <li
-            className="nav-item cart-icon-container"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-            }}
-          >
-            <Link to="/carrito" className="navbar_link cart-link">
+          <li className="nav-item cart-icon-container">
+            <Link to="/carrito" className="navbar_link cart-link" onClick={closeMobileMenu}>
               <FaShoppingCart className="cart-icon" />
             </Link>
           </li>
         </ul>
-      </div> {/* Cierra la nueva envoltura */}
+      </div>
+
+      {/* Overlay para cerrar el menú al hacer clic fuera (solo móvil) */}
+      {isMobileMenuOpen && <div className="mobile-menu-overlay" onClick={closeMobileMenu}></div>}
     </nav>
   );
 };
