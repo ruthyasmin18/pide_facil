@@ -13,7 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
     /* Asegúrate de NO tener 'overflow: hidden;' aquí a menos que sea muy intencional y sepas por qué */
