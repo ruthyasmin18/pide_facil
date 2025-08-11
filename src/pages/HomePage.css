@@ -1,15 +1,14 @@
-/* HomePage.css - VERSIÓN DEFINITIVA UNIFICADA CON NAVBAR */
+/* HomePage.css - VERSIÓN FINAL CORREGIDA */
 
 /* 1. Paleta de Colores y Configuración Global */
 :root {
-  /* Colores unificados con el Navbar */
-  --principal-rojo: #ff3131; /* Rojo del Navbar */
-  --secundario-azul: #3232c2;/* Azul del Navbar */
-  --fondo-pagina: #f8f9fa;    /* Gris muy claro para la página */
-  --fondo-bloque: #ffffff;     /* Blanco puro para los bloques */
-  --texto-principal: #343a40; /* Gris oscuro para texto legible */
+  --principal-rojo: #ff3131;
+  --secundario-azul: #3232c2;
+  --fondo-pagina: #f8f9fa;
+  --fondo-bloque: #ffffff;
+  --texto-principal: #343a40;
   --texto-claro: #ffffff;
-  --borde-suave: #e9ecef;     /* Para bordes y líneas sutiles */
+  --borde-suave: #e9ecef;
   --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.07);
 }
 
@@ -31,7 +30,6 @@ body {
   margin: 0 auto;
 }
 
-/* Estilo para las secciones/bloques */
 .pink-section,
 .green-section,
 .yellow-section {
@@ -40,18 +38,19 @@ body {
   border-radius: 16px;
   box-shadow: var(--sombra-suave);
   border: 1px solid var(--borde-suave);
+}
+
+/* 3. Sección de Bienvenida y "Quiénes Somos" */
+.pink-section {
   text-align: center;
 }
 
-/* 3. Sección de Bienvenida */
 .pink-section h1 {
-  /* El H1 ahora usa el rojo principal para coincidir con el navbar */
   color: var(--principal-rojo);
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 800;
   margin: 0 0 0.5rem 0;
 }
-
 
 .pink-section .subtitle {
   font-size: clamp(1.1rem, 2.5vw, 1.3rem);
@@ -59,13 +58,48 @@ body {
   margin-bottom: 2.5rem;
 }
 
-.pink-section h2 {
+.about-us-content {
+  text-align: left;
+  margin-top: 2.5rem;
+}
+
+.about-us-content h2 {
   font-size: clamp(1.8rem, 4vw, 2.2rem);
   font-weight: 700;
   margin-bottom: 1rem;
+  text-align: center;
+}
+
+.about-us-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secundario-azul);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--borde-suave);
+  padding-bottom: 0.5rem;
+}
+
+.values-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.value-item {
+  background-color: var(--fondo-pagina);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--principal-rojo);
 }
 
 /* 4. Sección de WhatsApp */
+.green-section {
+  text-align: center;
+}
+
 .whatsapp-buttons {
   margin-top: 1.5rem;
   display: flex;
@@ -75,29 +109,51 @@ body {
 }
 
 .whatsapp-btn {
- /* El botón de acción principal usa el rojo del navbar */
   background-color: var(--principal-rojo);
-  color: var(--texto-claro); /* Texto en blanco para mejor contraste */
+  color: var(--texto-claro);
   font-weight: 700;
-  padding: 1rem 2rem; /* Ajuste de padding */
+  padding: 1rem 2rem;
   border-radius: 50px;
   text-decoration: none;
   font-size: 1.1rem;
   border: none;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  display: inline-flex; /* Para alinear el ícono y el texto */
+  display: inline-flex;
   align-items: center;
-  gap: 12px; /* Espacio entre el ícono y el texto */
+  gap: 12px;
 }
-
 
 .whatsapp-btn:hover {
   transform: translateY(-3px);
-  background-color: #25D366; /* Verde de WhatsApp */
-  color: var(--texto-claro);   /* <-- Añade esta línea */
+  background-color: #25D366;
+  color: var(--texto-claro);
+}
+
+.direct-order-info {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--borde-suave);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.direct-order-info p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--texto-principal);
+}
+
+.whatsapp-number {
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 /* 5. Sección de Medios de Pago */
+.yellow-section {
+  text-align: center;
+}
+
 .payment-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -112,13 +168,12 @@ body {
   align-items: center;
   gap: 1.5rem;
   padding: 1.25rem;
-  background-color: var(--fondo-pagina); /* Un fondo ligeramente gris para diferenciar */
+  background-color: var(--fondo-pagina);
   border-radius: 12px;
 }
 
 .payment-item span {
   font-size: 2.2rem;
-  /* Los íconos usan el azul del navbar */
   color: var(--secundario-azul);
 }
 
@@ -132,8 +187,39 @@ body {
   color: #6c757d;
 }
 
+/* --- NUEVA Y MEJORADA SOLUCIÓN PARA "PRÓXIMAMENTE" --- */
+
+/* Por defecto, el texto "Próximamente" está oculto */
+.proximamente-text {
+  display: none;
+}
+
+/* Estilos para la tarjeta desactivada */
+.payment-item-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  justify-content: center; /* Centra el contenido (el texto "Próximamente") */
+}
+
+/* Cuando la tarjeta está desactivada, OCULTAMOS el contenido original */
+.payment-item-disabled .payment-content {
+  display: none;
+}
+
+/* Y MOSTRAMOS el texto "Próximamente" */
+.payment-item-disabled .proximamente-text {
+  display: block; /* Lo hacemos visible */
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--texto-principal);
+}
+
 /* 6. Diseño Responsivo */
 @media (min-width: 768px) {
+  .values-list {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
   .payment-list {
     grid-template-columns: 1fr 1fr;
   }
@@ -144,6 +230,14 @@ body {
   .green-section,
   .yellow-section {
     padding: 2rem 1.5rem;
+  }
+  
+  .about-us-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .about-us-content h3 {
+    font-size: 1.3rem;
   }
 
   .payment-item {
