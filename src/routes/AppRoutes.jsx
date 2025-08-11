@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Importa tus componentes de página
-import HomePage from '../pages/HomePage';
+import HomePage from '../pages/HomePage/HomePage';
 import AbarrotesPage from '../pages/AbarrotesPage';
 import CuidadoPersonalPage from '../pages/CuidadoPersonalPage';
 import LimpiezaHogarPage from '../pages/LimpiezaHogarPage';

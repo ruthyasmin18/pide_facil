@@ -1,0 +1,224 @@
+/* HomePage.css - DISEÑO FLUIDO CON DEGRADADOS */
+
+/* --- 1. IMPORTACIÓN DE FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@700;800&display=swap');
+
+/* 2. Paleta de Colores y Configuración Global */
+:root {
+  --principal-rojo: #ff3131;
+  --principal-rojo-claro: #ff6b6b;
+  --secundario-azul: #3232c2;
+  --whatsapp-verde: #25D366;  /* <-- AÑADE ESTA LÍNEA */
+  --fondo-pagina: #f8f9fa;
+  --texto-principal: #343a40;
+  --texto-claro: #ffffff;
+  --borde-suave: #e0e0e0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--fondo-pagina);
+  color: var(--texto-principal);
+  margin: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3, .proximamente-text {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 3. Estructura de Página Fluida */
+.page-wrapper {
+  width: 100%;
+}
+
+/* Contenedor centrado para el contenido */
+.content-container {
+  width: 100%;
+  max-width: 1100px; /* Mantiene el contenido legible */
+  margin: 0 auto;
+  padding: 0 2rem; /* Espacio en los lados */
+}
+
+/* Estilo base para todas las secciones */
+section {
+  padding: 5rem 0; /* Espaciado vertical entre secciones */
+  text-align: center;
+}
+
+/* 4. Estilos por Sección */
+
+/* -- Sección 1: Bienvenida y Quiénes Somos -- */
+.section-welcome {
+  /* Degradado sutil de blanco a gris claro */
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.section-welcome h1 {
+  color: var(--principal-rojo);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.section-welcome .subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: #6c757d;
+  margin-bottom: 4rem;
+}
+
+.about-us-content {
+  text-align: left;
+}
+
+.about-us-content h2 {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.about-us-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secundario-azul);
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--borde-suave);
+  padding-bottom: 0.5rem;
+  text-align: left;
+}
+
+.values-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.value-item {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 5px solid var(--principal-rojo);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+/* -- Sección 2: CTA (WhatsApp) -- */
+.section-cta {
+  /* Degradado con los dos colores principales de la marca */
+  background: linear-gradient(135deg, var(--principal-rojo) 0%, var(--secundario-azul) 100%);
+  color: var(--texto-claro); /* Texto blanco para contraste */
+}
+.section-cta .whatsapp-btn {
+  background-color: var(--texto-claro); /* Fondo blanco por defecto */
+  color: var(--principal-rojo); /* Texto rojo por defecto */
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border: none;
+  /* Transición suave para todos los cambios */
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.section-cta .whatsapp-btn:hover {
+  transform: translateY(-4px);
+  background-color: var(--whatsapp-verde); /* Fondo verde al pasar el mouse */
+  color: var(--texto-claro); /* Texto blanco para contraste */
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); /* Sombra verde opcional */
+}
+
+.section-cta h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+
+.direct-order-info {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* -- Sección 3: Medios de Pago -- */
+.section-payments {
+  background-color: #f8f9fa; /* Fondo gris claro */
+}
+
+.section-payments h2 {
+   font-size: clamp(1.8rem, 4vw, 2.5rem);
+   margin-bottom: 1rem;
+}
+
+.payment-list {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 3rem auto 0 auto;
+}
+
+.payment-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: #ffffff; /* Tarjetas blancas */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+.payment-item span {
+  font-size: 2.2rem;
+  color: var(--secundario-azul);
+}
+
+.payment-security {
+  margin-top: 3rem;
+  font-style: italic;
+  color: #6c757d;
+}
+
+.proximamente-text { display: none; }
+.payment-item-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  justify-content: center;
+}
+.payment-item-disabled .payment-content { display: none; }
+.payment-item-disabled .proximamente-text {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--texto-principal);
+}
+
+/* 5. Diseño Responsivo */
+@media (min-width: 768px) {
+  .values-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .payment-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 3rem 0;
+  }
+  .content-container {
+    padding: 0 1rem;
+  }
+  .payment-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
