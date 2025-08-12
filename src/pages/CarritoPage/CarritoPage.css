@@ -46,6 +46,7 @@
   height: 100px;
   object-fit: cover;
   border-radius: 8px;
+  flex-shrink: 0; /* Evita que la imagen se encoja */
 }
 
 .cart-item-details {
@@ -84,7 +85,7 @@
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  position: sticky;
+  position: sticky; /* Se mantiene pegajoso en escritorio */
   top: 2rem;
 }
 
@@ -120,9 +121,49 @@
   background-color: #d92b2b;
 }
 
-/* Responsive para el carrito */
+/* Responsive para tablets (pantallas medianas) */
 @media (max-width: 900px) {
   .cart-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Pasa a 1 columna */
+  }
+}
+
+/* --- AJUSTES ADICIONALES PARA CELULARES (NUEVO) --- */
+@media (max-width: 600px) {
+  .cart-page {
+    padding: 2rem 1rem; /* Menos espaciado */
+  }
+  
+  .cart-page h1 {
+    font-size: 2.2rem; /* Título más pequeño */
+    margin-bottom: 2rem;
+  }
+
+  .cart-item {
+    gap: 1rem; /* Menos espacio entre imagen y texto */
+    padding: 0.8rem;
+  }
+
+  .cart-item-image {
+    width: 80px; /* Imagen más pequeña */
+    height: 80px;
+  }
+
+  .cart-item-name {
+    font-size: 1rem; /* Nombre del producto más pequeño */
+  }
+
+  .cart-summary {
+    position: static; /* El resumen ya no es pegajoso y se desplaza con la página */
+    padding: 1.5rem;
+  }
+  
+  .summary-total {
+    font-size: 1.2rem; /* Total más pequeño */
+  }
+
+  .buy-now-btn {
+    font-size: 1rem;
+    padding: 0.8rem;
   }
 }

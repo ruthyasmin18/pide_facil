@@ -10,7 +10,7 @@ const App = () => {
     <>
       {/* 3. Se añade el componente que mostrará las notificaciones */}
       <Toaster 
-        position="top-center"
+        position="bottom-center"
         reverseOrder={false}
       />
 
