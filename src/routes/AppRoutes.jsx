@@ -8,7 +8,7 @@ import AbarrotesPage from '../pages/PaginasCatalogo/AbarrotesPage';
 import CuidadoPersonalPage from '../pages/PaginasCatalogo/CuidadoPersonalPage';
 import LimpiezaHogarPage from '../pages/PaginasCatalogo/LimpiezaHogarPage';
 // --- FIN DE CORRECCIÓN ---
-import CarritoPage from '../pages/CarritoPage';
+import CarritoPage from '../pages/CarritoPage/CarritoPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
 const AppRoutes = () => {

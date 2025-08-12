@@ -1,0 +1,128 @@
+.cart-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.cart-page h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.8rem;
+  text-align: center;
+  color: var(--principal-rojo);
+  margin-bottom: 3rem;
+}
+
+.empty-cart-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+.cart-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-item-name {
+  font-family: 'Poppins', sans-serif;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.cart-item-price, .cart-item-quantity {
+  margin: 0.25rem 0;
+  color: #6c757d;
+}
+
+.cart-item-remove-btn {
+  background: none;
+  border: 1px solid #ccc;
+  color: #888;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cart-item-remove-btn:hover {
+  background-color: var(--principal-rojo);
+  color: var(--texto-claro);
+  border-color: var(--principal-rojo);
+}
+
+.cart-summary {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 2rem;
+}
+
+.cart-summary h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.buy-now-btn {
+  width: 100%;
+  background-color: var(--principal-rojo);
+  color: var(--texto-claro);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buy-now-btn:hover {
+  background-color: #d92b2b;
+}
+
+/* Responsive para el carrito */
+@media (max-width: 900px) {
+  .cart-content {
+    grid-template-columns: 1fr;
+  }
+}

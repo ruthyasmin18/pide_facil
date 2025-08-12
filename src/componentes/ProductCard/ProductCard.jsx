@@ -1,24 +1,24 @@
-import React from 'react';
-import './ProductCard.css'; // Su propio archivo de estilos
+import React, { useContext } from 'react';         // 1. Importa useContext de React
+import { CartContext } from '../../context/CartContext'; // 2. Importa nuestro contexto del carrito
+import './ProductCard.css';
 
-// El componente recibe props para ser reutilizable
-const ProductCard = ({ image, name, price }) => {
-
-  const handleAddToCart = () => {
-    // Aquí iría la lógica para añadir al carrito
-    console.log(`Añadido al carrito: ${name}`);
-  };
+// 3. Ahora recibe el objeto 'product' completo para tener todos sus datos
+const ProductCard = ({ product }) => {
+  // 4. Obtiene la función addToCart desde el contexto
+  const { addToCart } = useContext(CartContext);
 
   return (
     <div className="product-card">
       <div className="product-image-container">
-        <img src={image} alt={name} />
+        {/* 5. Usa los datos del objeto 'product' */}
+        <img src={product.image} alt={product.name} />
       </div>
       <div className="product-info">
-        <h3 className="product-name">{name}</h3>
-        <p className="product-price">S/{price.toFixed(2)}</p>
+        <h3 className="product-name">{product.name}</h3>
+        <p className="product-price">S/ {product.price.toFixed(2)}</p>
       </div>
-      <button className="add-to-cart-btn" onClick={handleAddToCart}>
+      {/* 6. El botón ahora llama a la función addToCart del contexto */}
+      <button className="add-to-cart-btn" onClick={() => addToCart(product)}>
         🛒 Añadir al carrito
       </button>
     </div>
