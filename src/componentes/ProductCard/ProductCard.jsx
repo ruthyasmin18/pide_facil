@@ -16,7 +16,7 @@ const ProductCard = ({ image, name, price }) => {
       </div>
       <div className="product-info">
         <h3 className="product-name">{name}</h3>
-        <p className="product-price">${price.toFixed(2)}</p>
+        <p className="product-price">S/{price.toFixed(2)}</p>
       </div>
       <button className="add-to-cart-btn" onClick={handleAddToCart}>
         🛒 Añadir al carrito
