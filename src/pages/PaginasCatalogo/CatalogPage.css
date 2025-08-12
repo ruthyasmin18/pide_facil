@@ -1,0 +1,51 @@
+/* CatalogPage.css - CORREGIDO PARA 3 COLUMNAS */
+
+.catalog-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.catalog-page h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.8rem;
+  text-align: center;
+  color: var(--principal-rojo);
+  margin-bottom: 3.5rem;
+}
+
+.product-grid {
+  display: grid;
+  /*
+    LA CORRECCIÓN CLAVE:
+    Le decimos explícitamente que cree 3 columnas,
+    y cada una tomará una fracción igual del espacio (1fr).
+  */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem; /* Espacio entre las tarjetas */
+}
+
+/* AJUSTE CRÍTICO PARA MÓVILES:
+  En pantallas pequeñas, volvemos a 1 sola columna para que no se vea apretado.
+*/
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* Mostramos 2 columnas en tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .catalog-page {
+    padding: 2rem 1rem;
+  }
+
+  .catalog-page h1 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr; /* Mostramos 1 columna en móviles */
+    gap: 1.5rem;
+  }
+}

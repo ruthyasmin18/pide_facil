@@ -1,0 +1,68 @@
+.product-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  overflow: hidden; /* Mantiene la imagen dentro de los bordes redondeados */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.product-image-container {
+  width: 100%;
+  padding-top: 100%; /* Crea un contenedor cuadrado (aspect-ratio 1:1) */
+  position: relative;
+}
+
+.product-image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+}
+
+.product-info {
+  padding: 1.25rem;
+  flex-grow: 1; /* Permite que este div ocupe el espacio disponible */
+}
+
+.product-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: var(--texto-principal);
+  margin: 0 0 0.5rem 0;
+}
+
+.product-price {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--secundario-azul);
+  margin: 0 0 1.25rem 0;
+}
+
+.add-to-cart-btn {
+  background-color: var(--principal-rojo);
+  color: var(--texto-claro);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  margin: 0 1.25rem 1.25rem 1.25rem; /* Margen para separarlo */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #d92b2b; /* Un rojo un poco más oscuro */
+  transform: scale(1.05);
+}

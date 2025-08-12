@@ -3,11 +3,13 @@ import { Routes, Route } from 'react-router-dom';
 
 // Importa tus componentes de página
 import HomePage from '../pages/HomePage/HomePage';
-import AbarrotesPage from '../pages/AbarrotesPage';
-import CuidadoPersonalPage from '../pages/CuidadoPersonalPage';
-import LimpiezaHogarPage from '../pages/LimpiezaHogarPage';
+// --- RUTAS CORREGIDAS ---
+import AbarrotesPage from '../pages/PaginasCatalogo/AbarrotesPage';
+import CuidadoPersonalPage from '../pages/PaginasCatalogo/CuidadoPersonalPage';
+import LimpiezaHogarPage from '../pages/PaginasCatalogo/LimpiezaHogarPage';
+// --- FIN DE CORRECCIÓN ---
 import CarritoPage from '../pages/CarritoPage';
-import NotFoundPage from '../pages/NotFoundPage'; // Componente para 404
+import NotFoundPage from '../pages/NotFoundPage';
 
 const AppRoutes = () => {
   return (
